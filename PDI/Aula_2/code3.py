@@ -1,14 +1,26 @@
-from skimage.color import rgb2gray
-from PDI.src.pdi_utils import load_page_image,show_image
-page_image = load_page_image()
-page_image_gray = rgb2gray(page_image)
 
 # Import Gaussian filter
 from skimage.filters import gaussian
+from PDI.src.pdi_utils import load_building_image,show_image
+building_image = load_building_image()
 
-# Apply filter
-gaussian_image = gaussian(page_image_gray)
+
+# Apply filter sigma = 1
+gaussian_image = gaussian(building_image, sigma=1,channel_axis = True)
 
 # Show original and resulting image to compare
-show_image(page_image, "Original")
-show_image(gaussian_image, "Reduced sharpness Gaussian")
+show_image(building_image, "Original")
+show_image(gaussian_image, "Reduced sharpness Gaussian with sigma = 1")
+
+
+# Apply gaussian filter sigma = 5
+gaussian_image = gaussian(building_image, sigma=5,channel_axis = True)
+
+# Show resulting image to compare
+show_image(gaussian_image, "Reduced sharpness Gaussian with sigma = 5")
+
+# Apply filter sigma = 10
+gaussian_image = gaussian(building_image, sigma=10,channel_axis = True)
+
+# Show resulting image to compare
+show_image(gaussian_image, "Reduced sharpness Gaussian with sigma = 10")
