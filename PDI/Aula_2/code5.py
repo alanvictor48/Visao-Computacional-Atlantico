@@ -23,16 +23,16 @@ hist_eq = plt.hist(image_eq.ravel(), bins=256)
 plt.show()
 
 # determinar a media do valor dos pixels que ocorrem na imagem não equalizada
-img_mean_n_eq = np.mean(hist_n_eq[0])*255
+img_mean_n_eq = np.mean(image_aerial.ravel())*255
 
 # determinar a media do valor dos pixels que ocorrem na imagem  equalizada
-img_mean_eq = np.mean(hist_eq[0])*255
+img_mean_eq = np.mean(image_eq.ravel())*255
 
 # determinar a variancia do valor dos pixels que ocorrem na imagem não equalizada
-img_var_n_eq = np.var(hist_n_eq[0])*255
+img_var_n_eq = np.var(image_aerial.ravel())*255
 
 # determinar a variancia do valor dos pixels que ocorrem na imagem  equalizada
-img_var_eq = np.var(hist_eq[0])*255
+img_var_eq = np.var(image_eq.ravel())*255
 
 # determinar os pixels que ocorrem com menor frequência da imagem não equalizada
 l_freq = 0.2
@@ -60,7 +60,7 @@ print("media de valores de pixel  na imagem eq: ",img_mean_eq )
 print("variancia de valores de pixel na imagem não eq: ",img_var_n_eq )
 print("variancia de valores de pixel  na imagem eq: ",img_var_eq)
 
-print("entropia de valores do histograma da imagem não eq: ",hist_entropy_eq )
+print("entropia de valores do histograma da imagem não eq: ",hist_entropy_n_eq )
 print("entropia de valores do histograma da imagem eq: ",hist_entropy_eq)
 
 print("numero de pixels com probabilidde de ocorrencia menor que,", l_freq , " na imagem não eq: ",len(low_freq_region_n_eq[0]))
